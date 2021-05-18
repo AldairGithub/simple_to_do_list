@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './SearchBar.css'
+
 export default function SearchBar(props) {
   const { newTask, input, setInput } = props
 
@@ -12,15 +14,22 @@ export default function SearchBar(props) {
   
   return (
     <>
-      <div>
+      <div className='input-container'>
         <input
+          className='input-display'
           placeholder='search task'
           type='text'
           name='text'
           value={input}
           onChange={handleChange}
+          maxLength={25}
         />
-        <button onClick={newTask}>add task</button>
+        <button
+          className='input-button'
+          onClick={newTask}
+        >
+          add task
+        </button>
       </div>
     </>
   )

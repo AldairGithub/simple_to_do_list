@@ -1,0 +1,21 @@
+.input-container {
+  width: 365px;
+  position: relative;
+}
+.input-display {
+  padding: 9px;
+  font-size: 14px;
+  width: 210px;
+}
+.input-button {
+  position: absolute;
+  right: 0;
+  height: 40px;
+  width: 100px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
