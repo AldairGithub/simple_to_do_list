@@ -49,20 +49,28 @@ export default function Task(props) {
         <div>
         {displayEditTask ?
           <>
-            <form onSubmit={handleEditedTask}>
-              <input
-                name='text'
-                value={editedTask.text}
-                placeholder='edit task'
-                onChange={handleChange}
-                maxLength={25}
-              />
-              <button>Save</button>
+              <form
+                className='edit-task-container'
+                onSubmit={handleEditedTask}
+              >
+                <input
+                  className='edit-task-input'
+                  name='text'
+                  value={editedTask.text}
+                  placeholder='edit task'
+                  onChange={handleChange}
+                  maxLength={25}
+                />
+                <button
+                  className='edit-task-button'
+                >
+                  Save
+                </button>
             </form>
           </>
           :
           <>
-            <p>{ task }</p>
+            <p className='task-text'>{ task }</p>
           </>
         }
       </div>
