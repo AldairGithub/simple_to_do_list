@@ -1,0 +1,13 @@
+.task-container {
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+  width: 380px;
+}
+.task-icons-container {
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  right: 0;
+  margin-top: 9px;
+}

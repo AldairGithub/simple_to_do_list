@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './AddTask.css'
+
 export default function AddTask(props) {
   const { input, setInput, onNewTask } = props
   
@@ -12,15 +14,16 @@ export default function AddTask(props) {
 
   return (
     <>
-      <div>
+      <div className='input-container newtask-container'>
         <form onSubmit={onNewTask}>
           <input
+            className='input-display'
             placeholder='add task'
             name='text'
             value={input}
             onChange={handleChange}
           />
-          <button>save</button>
+          <button className='input-button'>save</button>
         </form>
       </div>
     </>

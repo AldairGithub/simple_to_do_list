@@ -69,29 +69,39 @@ export default function Main() {
     )
     updateLocalStorage(newList)
   }
+
+  const filterSearch = (arr, str) => {
+    return arr.filter(ele => {
+      return ele.toLowerCase().includes(str)
+    })
+  }
   return (
     <>
       <div className='main-container'>
-        <SearchBar
-          newTask={newTask}
-          input={searchInput.text}
-          setInput={setSearchInput}
-          list={list}
-          setList={setList}
-        />
-        {displayAddTask &&
-          <>
-          <AddTask
-            input={addTaskInput.text}
-            setInput={setAddTaskInput}
-            onNewTask={onNewTask}
+        <div className='searchbar-addtask-container'>
+          <SearchBar
+            newTask={newTask}
+            input={searchInput.text}
+            setInput={setSearchInput}
+            list={list}
+            setList={setList}
           />
-          </>
-        }
+          {displayAddTask &&
+            <>
+              <AddTask
+                input={addTaskInput.text}
+                setInput={setAddTaskInput}
+                onNewTask={onNewTask}
+              />
+            </>
+          }
+        </div>
+
         <ToDoList
           list={list}
           editList={editList}
           deleteTask={deleteTask}
+          filteredList={filterSearch(list, searchInput.text)}
         />
       </div>
     </>
