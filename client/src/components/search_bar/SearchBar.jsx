@@ -17,7 +17,7 @@ export default function SearchBar(props) {
       <div className='input-container'>
         <input
           className='input-display'
-          placeholder='search task'
+          placeholder='&#xF002; Search'
           type='text'
           name='text'
           value={input}
@@ -28,7 +28,7 @@ export default function SearchBar(props) {
           className='input-button'
           onClick={newTask}
         >
-          add task
+          Add task
         </button>
       </div>
     </>
