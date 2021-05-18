@@ -18,12 +18,18 @@ export default function AddTask(props) {
         <form onSubmit={onNewTask}>
           <input
             className='input-display'
-            placeholder='add task'
+            placeholder='&#xF067; Add task'
             name='text'
             value={input}
             onChange={handleChange}
           />
-          <button className='input-button'>save</button>
+          <button
+            className='input-button'
+            style={{ opacity: `${input.length === 0 ? '0.5' : '1'}` }}
+            disabled={input.length === 0 ? true : false}
+          >
+            save
+          </button>
         </form>
       </div>
     </>

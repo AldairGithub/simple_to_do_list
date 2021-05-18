@@ -57,12 +57,14 @@ export default function Task(props) {
                   className='edit-task-input'
                   name='text'
                   value={editedTask.text}
-                  placeholder='edit task'
+                  placeholder='&#xF039; Edit task'
                   onChange={handleChange}
                   maxLength={25}
                 />
                 <button
                   className='edit-task-button'
+                  style={{ opacity: `${editedTask.text.length === 0 ? '0.5' : '1'}` }}
+                  disabled={editedTask.text.length === 0 ? true : false}
                 >
                   Save
                 </button>
