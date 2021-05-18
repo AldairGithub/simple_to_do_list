@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import './AddTask.css'
 
@@ -12,9 +13,20 @@ export default function AddTask(props) {
     })
   }
 
+
   return (
     <>
-      <div className='input-container newtask-container'>
+      <motion.div
+        className='input-container newtask-container'
+        // start of div, position
+        initial={{ translateY: "0px", opacity: 0 }}
+        // move div on the y axis (vertically) while changing opacity
+        animate={{ translateY: "55px", opacity: 1 }}
+        // how long it takes for animation to finish
+        transition={{ duration: 1 }}
+        // when div is removed from tree
+        exit={{translateY: "0px", opacity: 0}}
+      >
         <form onSubmit={onNewTask}>
           <input
             className='input-display'
@@ -31,7 +43,7 @@ export default function AddTask(props) {
             save
           </button>
         </form>
-      </div>
+      </motion.div>
     </>
   )
 }
