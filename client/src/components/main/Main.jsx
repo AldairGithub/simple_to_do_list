@@ -65,12 +65,11 @@ export default function Main() {
     updateLocalStorage(newList)
   }
   const deleteTask = (id) => {
-    const newList = [...list]
-    const filter = newList.filter((ele, index) => index !== id)
+    const filter = list.filter((ele, index) => index !== id)
     setList(
       filter
     )
-    updateLocalStorage(newList)
+    updateLocalStorage(filter)
   }
 
   const filterSearch = (arr, str) => {

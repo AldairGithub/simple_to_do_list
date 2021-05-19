@@ -1,8 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-import './AddTask.css'
-
 export default function AddTask(props) {
   const { input, setInput, onNewTask } = props
   
@@ -23,7 +21,7 @@ export default function AddTask(props) {
         // move div on the y axis (vertically) while changing opacity
         animate={{ translateY: "55px", opacity: 1 }}
         // how long it takes for animation to finish
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
         // when div is removed from tree
         exit={{translateY: "0px", opacity: 0}}
       >
