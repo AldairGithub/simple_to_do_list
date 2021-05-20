@@ -1,6 +1,7 @@
 .input-container {
   width: 365px;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 .input-display {
   padding: 9px;
@@ -8,15 +9,30 @@
   width: 210px;
   font-family: FontAwesome, 'Arial';
 }
-.input-button {
-  position: absolute;
-  right: 0;
+.input-button-container {
   height: 40px;
   width: 100px;
+  background: linear-gradient(60deg, #84CEEB, #5AB9EA, #5680E9, #8860D0 );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.input-button {
+  border-radius: 5px;
+  height: 38px;
+  width: 98px;
   letter-spacing: 1px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  background-color: black;
+  background: black;
   color: white;
+  transition: background 1s linear, color 0.2s ease-out;
+}
+.input-button-container:hover {
+  background: black;
+}
+.input-button-container:hover .input-button{
+  background: linear-gradient(60deg, #84CEEB, #5AB9EA, #5680E9, #8860D0 );
+  color: black;
 }

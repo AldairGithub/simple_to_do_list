@@ -5,9 +5,11 @@
   width: 380px;
   height: 35px;
   padding: 12px;
-  border: 1px solid black;
+  border: 1px solid #66FCF1;
   border-radius: 5px;
   margin-bottom: 25px;
+  color: #0B0C10;
+  background: #FFF;
 }
 .task-text {
   line-height: 0px;
@@ -20,6 +22,7 @@
   margin-top: 9px;
   width: 75px;
   justify-content: space-evenly;
+  color: #0B0C10;
 }
 .edit-task-input {
   width: 200px;
@@ -30,7 +33,7 @@
 .edit-task-button {
   padding: 9px;
   background-color: black;
-  border: none;
+  border: 1px solid #66FCF1;
   border-radius: 5px;
   color: white;
   margin-left: 15px;

@@ -24,12 +24,14 @@ export default function SearchBar(props) {
           onChange={handleChange}
           maxLength={25}
         />
-        <button
-          className='input-button'
-          onClick={newTask}
-        >
-          Add task
-        </button>
+        <div className='input-button-container'>
+          <button
+            className='input-button'
+            onClick={newTask}
+          >
+            Add task
+          </button>
+        </div>
       </div>
     </>
   )
