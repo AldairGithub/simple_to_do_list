@@ -45,17 +45,51 @@ export default function Task(props) {
     deleteTask(getIdFromList())
   }
 
+  const inputPresent = (attr) => {
+    if (attr === 'opacity') {
+      if (editedTask.text.length === 0) {
+        return '0.5'
+      } else {
+        return '1'
+      }
+    } else if (attr === 'disabled') {
+      if (editedTask.text.length === 0) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  const variants = {
+    visible: {
+      x: '0px', opacity: 1
+    },
+    hidden: {
+      x: '-15px', opacity: 0
+    }
+  }
+  const textVariants = {
+    visible: {
+      x: '0px', opacity: 1
+    },
+    hidden: {
+      x: '15px', opacity: 0
+    }
+  }
+
   return (
     <>
       <div className='task-container'>
-        <AnimatePresence>
             {displayEditTask ?
-              <>
+            <>
+              <AnimatePresence>
                 <motion.div
-                  initial={{ x: '-25px', opacity: 0 }}
-                  animate={{ x: '0px', opacity: 1 }}
+                  initial='hidden'
+                  animate='visible'
+                  variants={variants}
                   transition={{ duration: 0.5 }}
-                  exit={{x: '25px', opacity: 0}}
+                  exit='hidden'
                 >
                   <form
                     className='edit-task-container'
@@ -71,20 +105,28 @@ export default function Task(props) {
                     />
                     <button
                       className='edit-task-button'
-                      style={{ opacity: `${editedTask.text.length === 0 ? '0.5' : '1'}` }}
-                      disabled={editedTask.text.length === 0 ? true : false}
+                      style={{ opacity: `${inputPresent('opacity')}` }}
+                      disabled={inputPresent('disabled')}
                     >
                       Save
                     </button>
                   </form>
               </motion.div>
+              </AnimatePresence>
             </>
             :
-            <>
+          <>
+            <motion.div
+              initial='hidden'
+              animate='visible'
+              variants={textVariants}
+              transition={{ duration: 0.5 }}
+              exit='hidden'
+            >
               <p className='task-text'>{ task }</p>
+            </motion.div>
             </>
           }
-        </AnimatePresence>
       <div className='task-icons-container'>
         <div>
           <FontAwesomeIcon

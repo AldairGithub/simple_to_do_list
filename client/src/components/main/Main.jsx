@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import Header from '../header/Header'
 import SearchBar from '../search_bar/SearchBar'
 import AddTask from '../add_task/AddTask'
 import ToDoList from '../to_do_list/ToDoList'
@@ -80,6 +81,7 @@ export default function Main() {
   return (
     <>
       <div className='main-container'>
+        <Header />
         <div className='searchbar-addtask-container'>
           <SearchBar
             newTask={newTask}
