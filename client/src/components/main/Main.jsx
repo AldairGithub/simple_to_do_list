@@ -1,8 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import './Main.css'
+import React, { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import Header from '../header/Header'
 import SearchBar from '../search_bar/SearchBar'
 import AddTask from '../add_task/AddTask'
 import ToDoList from '../to_do_list/ToDoList'
+
+import './Main.css'
+
 
 export default function Main() {
   const [list, setList] = useState([])
@@ -62,36 +66,49 @@ export default function Main() {
     updateLocalStorage(newList)
   }
   const deleteTask = (id) => {
-    const newList = [...list]
-    const filter = newList.filter((ele, index) => index !== id)
+    const filter = list.filter((ele, index) => index !== id)
     setList(
       filter
     )
-    updateLocalStorage(newList)
+    updateLocalStorage(filter)
+  }
+
+  const filterSearch = (arr, str) => {
+    return arr.filter(ele => {
+      return ele.toLowerCase().includes(str)
+    })
   }
   return (
     <>
       <div className='main-container'>
-        <SearchBar
-          newTask={newTask}
-          input={searchInput.text}
-          setInput={setSearchInput}
-          list={list}
-          setList={setList}
-        />
-        {displayAddTask &&
-          <>
-          <AddTask
-            input={addTaskInput.text}
-            setInput={setAddTaskInput}
-            onNewTask={onNewTask}
+        <Header />
+        <div className='searchbar-addtask-container'>
+          <SearchBar
+            newTask={newTask}
+            input={searchInput.text}
+            setInput={setSearchInput}
+            list={list}
+            setList={setList}
           />
-          </>
-        }
+          {/* component must be first animatable child of AnimatePresence in order for exit attribute to work */}
+          <AnimatePresence>
+            {displayAddTask &&
+              <>
+                <AddTask
+                  input={addTaskInput.text}
+                  setInput={setAddTaskInput}
+                  onNewTask={onNewTask}
+                />
+              </>
+            }    
+          </AnimatePresence>
+        </div>
+
         <ToDoList
           list={list}
           editList={editList}
           deleteTask={deleteTask}
+          filteredList={filterSearch(list, searchInput.text)}
         />
       </div>
     </>

@@ -1,0 +1,19 @@
+.add-task-button {
+  border-radius: 5px;
+  height: 38px;
+  width: 98px;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  background: black;
+  color: #fff;
+  transition: background 1s ease-out, color 0.5s linear;
+}
+
+.add-task-button:hover {
+  background: linear-gradient(#84CEEB, #5AB9EA, #5680E9, #8860D0);
+  background-repeat: repeat;
+  background-size: 400% 100%;
+  border: 1px solid black;
+  color: #fff;
+}
