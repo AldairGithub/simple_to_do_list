@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+import './AddTask.css'
+
 export default function AddTask(props) {
   const { input, setInput, onNewTask } = props
   
@@ -32,9 +34,9 @@ export default function AddTask(props) {
             value={input}
             onChange={handleChange}
           />
-          <div>
+          <div className='add-task-input-button'>
             <button
-              className='input-button'
+              className='add-task-button'
               style={{ opacity: `${input.length === 0 ? '0.5' : '1'}` }}
               disabled={input.length === 0 ? true : false}
             >

@@ -29,6 +29,7 @@
   color: white;
   transition: background 1s linear, color 0.2s ease-out;
 }
+
 .input-button-container:hover {
   background: black;
 }
